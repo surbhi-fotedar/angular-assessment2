@@ -1,4 +1,14 @@
 <div class="form-group">
   <label>Mailing Address</label>
-  <input type="text" class="form-control" placeholder="Enter Address">
+  <input type="text" class="form-control" placeholder="Enter Address" required [(ngModel)]="address" (blur)="onBlurMethod()" #pAddress="ngModel">
+
+  <div *ngIf="pAddress.invalid && (pAddress.dirty || pAddress.touched)" class="alert alert-danger">
+
+    <div *ngIf="pAddress.errors.required">
+      House number is required.
+    </div>
+  </div>
+  <div>
+    <app-last-name [showAdrsMsg]="showVar"></app-last-name>
+  </div>
 </div>

@@ -7,8 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LastNameComponent implements OnInit {
 
-  validMessage: string='last name required';
-  @Input() showMsg: Boolean;
+  
+  @Input('showMsg') showMsg: Boolean;
+  @Input('showAdrsMsg') showAdrsMsg: Boolean;
+  
   constructor() { }
 
   ngOnInit() {
