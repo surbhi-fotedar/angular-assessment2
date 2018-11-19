@@ -13,6 +13,7 @@ export class MailingAddressComponent implements OnInit {
 
   address: string;
   pAddress = new Mailing();
+  showAddress: boolean = false;
   showVar: boolean = false;
 
   constructor(public nameService: NameService) { }
@@ -21,15 +22,17 @@ export class MailingAddressComponent implements OnInit {
   }
 
   onBlurMethod(){
-    this.pAddress = this.nameService.parsePersonAddress(this.address);
-    
-    if(typeof(this.pAddress.streetName) === 'undefined') {
-      this.showVar = !this.showVar;
+    if(typeof(this.address) === 'undefined') {
+      this.showAddress = !this.showAddress;
     }
     else {
-      this.showVar = !this.showVar;
+      this.pAddress = this.nameService.parsePersonAddress(this.address);
+      if(typeof(this.pAddress.streetName) === 'undefined') {
+        this.showVar = !this.showVar;
+      }
+      else {
+        this.showVar = false;
+      }
     }
-
-
   }
 }

@@ -1,4 +1,16 @@
 <div class="form-group">
   <label>Location</label>
-  <input type="text" class="form-control" placeholder="Enter Location">
+  <input type="text" class="form-control" placeholder="Enter Location" required [(ngModel)]="location" (blur)="onBlurMethod()" #pLocation="ngModel">
+  <div *ngIf="pLocation.invalid && (pLocation.dirty || pLocation.touched)">
+
+    <div>
+      <app-last-name [showcityMsg]="showCity"></app-last-name>
+    </div>
+  </div>
+  <div>
+    <app-last-name [showstateMsg]="showState"></app-last-name>
+  </div>
+  <div>
+    <app-last-name [showzipNumMsg]="showZip"></app-last-name>
+  </div>
 </div>

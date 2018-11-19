@@ -15,6 +15,7 @@ export class PersonNameComponent implements OnInit {
 
   fullName: string;
   pName = new Name();
+  showFullName: boolean = false;
   showVar: boolean = false;
 
   constructor(public nameService: NameService) { }
@@ -22,10 +23,20 @@ export class PersonNameComponent implements OnInit {
   ngOnInit() { }
 
   onBlurMethod(){
-    this.pName = this.nameService.parsePersonName(this.fullName);
-    
-    if(typeof(this.pName.lastName) === 'undefined') {
-      this.showVar = !this.showVar;
+    if(typeof(this.fullName) === 'undefined') {
+      this.showFullName = !this.showFullName;
+    } 
+    else {
+      this.pName = this.nameService.parsePersonName(this.fullName);
+      if(typeof(this.pName.lastName) === 'undefined') {
+        this.showVar = !this.showVar;
+      }
+      else {
+        this.showVar = false;
+      }
     }
+    
+    
+   
   }
 }

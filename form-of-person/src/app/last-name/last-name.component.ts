@@ -10,6 +10,12 @@ export class LastNameComponent implements OnInit {
   
   @Input('showMsg') showMsg: Boolean;
   @Input('showAdrsMsg') showAdrsMsg: Boolean;
+  @Input('undefinedMsg') undefinedMsg: Boolean;
+  @Input('showHouseNumMsg') showHouseNumMsg: Boolean;
+  @Input('showcityMsg') showcityMsg: Boolean;
+  @Input('showstateMsg') showstateMsg: Boolean;
+  @Input('showzipNumMsg') showzipNumMsg: Boolean;
+
   
   constructor() { }
 

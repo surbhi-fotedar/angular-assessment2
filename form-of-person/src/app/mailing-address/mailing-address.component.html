@@ -4,8 +4,8 @@
 
   <div *ngIf="pAddress.invalid && (pAddress.dirty || pAddress.touched)" class="alert alert-danger">
 
-    <div *ngIf="pAddress.errors.required">
-      House number is required.
+    <div>
+      <app-last-name [showHouseNumMsg]="showAddress"></app-last-name>
     </div>
   </div>
   <div>
