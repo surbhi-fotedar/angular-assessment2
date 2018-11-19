@@ -1,4 +1,13 @@
 <div class="form-group">
   <label>Email address</label>
-  <input type="email" class="form-control" placeholder="name@example.com">
+  <input type="email" class="form-control" placeholder="Enter Email" required [(ngModel)]="emailAddress" (blur)="onBlurMethod()">
+  <div>
+    <app-last-name [showEmailMsg]="showEmail"></app-last-name>
+  </div>
+  <div>
+    <app-last-name [showEmailNameMsg]="showEmailName"></app-last-name>
+  </div>
+  <div>
+    <app-last-name [showEmailDomainMsg]="showEmailDomain"></app-last-name>
+  </div>
 </div>

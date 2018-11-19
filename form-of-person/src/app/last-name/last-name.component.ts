@@ -18,6 +18,9 @@ export class LastNameComponent implements OnInit {
   @Input('showzipNumMsg') showzipNumMsg: Boolean;
   @Input('showNumMsg') showNumMsg: Boolean;
   @Input('showNumLengthMsg') showNumLengthMsg: Boolean;
+  @Input('showEmailMsg') showEmailMsg: Boolean;
+  @Input('showEmailNameMsg') showEmailNameMsg: Boolean;
+  @Input('showEmailDomainMsg') showEmailDomainMsg: Boolean;
 
   constructor() { }
 

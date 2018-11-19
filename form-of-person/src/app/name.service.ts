@@ -5,6 +5,7 @@ import { Name } from './name';
 import { Mailing } from './mailing';
 import { Location } from './location';
 import { PhoneNumber} from './phone-number';
+import { Email } from './email';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class NameService {
   pAddress = new Mailing();
   pLocation = new Location();
   pNumber = new PhoneNumber();
+  pEmailAddress = new Email();
 
   constructor() {}
   
@@ -58,6 +60,14 @@ export class NameService {
 
     return this.pNumber;
     
+  }
+
+  parsePersonEmailAddress(email: string): Email {
+
+    this.pEmailAddress.emailName = email.substr(0,email.indexOf('@'));
+    this.pEmailAddress.emailDomain = email.substr(email.indexOf('@')+1);
+    
+    return this.pEmailAddress;
   }
 
 
