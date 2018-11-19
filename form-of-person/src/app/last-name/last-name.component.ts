@@ -15,11 +15,16 @@ export class LastNameComponent implements OnInit {
   @Input('showcityMsg') showcityMsg: Boolean;
   @Input('showstateMsg') showstateMsg: Boolean;
   @Input('showzipNumMsg') showzipNumMsg: Boolean;
+  @Input('showAreaMsg') showAreaMessage: Boolean;
+  @Input('showNumMsg') showNumMsg: Boolean;
+  @Input('showAreaMsg') showAreaMsg: Boolean;
+  @Input('showPrefixMsg') showPrefixMsg: Boolean;
+  @Input('showActualNumMsg') showActualNumMsg: Boolean;
 
-  
   constructor() { }
 
   ngOnInit() {
   }
 
 }
+

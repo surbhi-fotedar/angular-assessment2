@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Name } from './name';
 import { Mailing } from './mailing';
 import { Location } from './location';
+import { PhoneNumber} from './phone-number';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class NameService {
   pName = new Name();
   pAddress = new Mailing();
   pLocation = new Location();
+  pNumber = new PhoneNumber();
 
   constructor() {}
   
@@ -46,6 +48,16 @@ export class NameService {
     
     return this.pLocation;
 
+  }
+
+  parsePersonPhoneNumber(phoneNumber: string): PhoneNumber {
+
+    this.pNumber.areaCode = phoneNumber.substr(0,3);
+    this.pNumber.prefix = phoneNumber.substr(3,3);
+    this.pNumber.actualNumber = phoneNumber.substr(6,4);
+
+    return this.pNumber;
+    
   }
 
 

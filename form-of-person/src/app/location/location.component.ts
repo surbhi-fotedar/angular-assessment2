@@ -21,7 +21,7 @@ export class LocationComponent implements OnInit {
   ngOnInit() {
   }
 
-  onBlurMethod(){
+  onBlurMethod() {
     if(typeof(this.location) === 'undefined') {
       this.showCity = !this.showCity;
     }

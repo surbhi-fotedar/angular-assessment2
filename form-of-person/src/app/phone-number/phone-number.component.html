@@ -1,4 +1,16 @@
 <div class="form-group">
   <label>Phone Number</label>
-  <input type="text" class="form-control" placeholder="Enter Number">
+  <input type="text" class="form-control" placeholder="Enter Location" required [(ngModel)]="phoneNumber" (blur)="onBlurMethod()" #pNumber="ngModel">
+  <div>
+    <app-last-name [showNumMsg]="showNum"></app-last-name>
+  </div>
+  <div>
+    <app-last-name [showAreaMsg]="showAreaCode"></app-last-name>
+  </div>
+  <!-- <div>
+    <app-last-name [showPrefixMsg]="showPrefix"></app-last-name>
+  </div>
+  <div>
+    <app-last-name [showActualNumMsg]="showActualNumber"></app-last-name>
+  </div> -->
 </div>

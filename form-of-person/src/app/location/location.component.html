@@ -2,7 +2,6 @@
   <label>Location</label>
   <input type="text" class="form-control" placeholder="Enter Location" required [(ngModel)]="location" (blur)="onBlurMethod()" #pLocation="ngModel">
   <div *ngIf="pLocation.invalid && (pLocation.dirty || pLocation.touched)">
-
     <div>
       <app-last-name [showcityMsg]="showCity"></app-last-name>
     </div>
