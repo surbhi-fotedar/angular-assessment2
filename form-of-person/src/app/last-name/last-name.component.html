@@ -1,17 +1,25 @@
-<div *ngIf="showMsg" class="alert alert-danger">
+<div *ngIf="showFullNameMsg" class="alert alert-danger">
+  <p>Name is Required</p>
+</div>
+
+<div *ngIf="showInvalidNameMsg" class="alert alert-danger">
+  <p>Write valid name</p>
+</div>
+
+<div *ngIf="showLastNameMsg" class="alert alert-danger">
   <p>last name required</p>
 </div>
 
 <div *ngIf="showAdrsMsg" class="alert alert-danger">
-  <p>Street name is required</p>
-</div>
-
-<div *ngIf="undefinedMsg" class="alert alert-danger">
-  <p>first name required</p>
+  <p>House number and City name required</p>
 </div>
 
 <div *ngIf="showHouseNumMsg" class="alert alert-danger">
-  <p>House number required</p>
+  <p>House number should only be a number value</p>
+</div>
+
+<div *ngIf="showStreetMsg" class="alert alert-danger">
+  <p>Street Name after house number is required</p>
 </div>
 
 <div *ngIf="showcityMsg" class="alert alert-danger">
@@ -26,22 +34,10 @@
   <p>zip code required</p>
 </div>
 
-<!-- <div *ngIf="showAreaMsg" class="alert alert-danger">
-  <p>area code required</p>
-</div> -->
-
 <div *ngIf="showNumMsg" class="alert alert-danger">
   <p>Enter only Numbers</p>
 </div>
 
-<div *ngIf="showAreaMsg" class="alert alert-danger">
+<div *ngIf="showNumLengthMsg" class="alert alert-danger">
   <p>Enter ten digit Phone Number</p>
 </div>
-
-<!-- <div *ngIf="showPrefixMsg" class="alert alert-danger">
-  <p>Three digit prefix required</p>
-</div>
-
-<div *ngIf="showActualNumMsg" class="alert alert-danger">
-  <p>Actual four digit number required</p>
-</div> -->

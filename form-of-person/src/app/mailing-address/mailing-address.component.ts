@@ -14,7 +14,8 @@ export class MailingAddressComponent implements OnInit {
   address: string;
   pAddress = new Mailing();
   showAddress: boolean = false;
-  showVar: boolean = false;
+  showHouseNum: boolean = false;
+  showStreet: boolean = false;
 
   constructor(public nameService: NameService) { }
 
@@ -22,16 +23,22 @@ export class MailingAddressComponent implements OnInit {
   }
 
   onBlurMethod(){
+
     if(typeof(this.address) === 'undefined') {
       this.showAddress = !this.showAddress;
     }
     else {
       this.pAddress = this.nameService.parsePersonAddress(this.address);
-      if(typeof(this.pAddress.streetName) === 'undefined') {
-        this.showVar = !this.showVar;
+      if(!(Number(this.pAddress.houseNum)) ) {
+        this.showAddress = !this.showAddress;
+      }
+      else if(typeof(this.pAddress.streetName) === 'undefined'){
+        this.showAddress = false;
+        this.showStreet = !this.showStreet;
       }
       else {
-        this.showVar = false;
+        this.showStreet = false;
+        this.showAddress = false;
       }
     }
   }

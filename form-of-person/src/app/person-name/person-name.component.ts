@@ -13,30 +13,37 @@ import { Name } from '../name';
 
 export class PersonNameComponent implements OnInit {
 
-  fullName: string;
+  fullName: any;
   pName = new Name();
   showFullName: boolean = false;
-  showVar: boolean = false;
-
+  showInvalidName: boolean = false;
+  showLastName: boolean = false;
+  letters = /^[A-Za-z\s\.]*$/;
   constructor(public nameService: NameService) { }
 
   ngOnInit() { }
 
-  onBlurMethod(){
+  onBlurMethod() {
+
     if(typeof(this.fullName) === 'undefined') {
       this.showFullName = !this.showFullName;
     } 
-    else {
+    
+    else if(this.letters.test(this.fullName)) {
       this.pName = this.nameService.parsePersonName(this.fullName);
-      if(typeof(this.pName.lastName) === 'undefined') {
-        this.showVar = !this.showVar;
-      }
-      else {
-        this.showVar = false;
-      }
+        if(typeof(this.pName.lastName) === 'undefined') {
+          this.showInvalidName = false;
+          this.showLastName = !this.showLastName;
+        }
+        else {
+          this.showInvalidName = false;
+          this.showLastName = false;
+        }
     }
-    
-    
-   
+      else {
+        this.showLastName = false;
+        this.showInvalidName = !this.showInvalidName;
+      } 
+    } 
   }
-}
+

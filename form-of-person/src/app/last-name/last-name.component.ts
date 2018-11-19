@@ -7,19 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LastNameComponent implements OnInit {
 
-  
-  @Input('showMsg') showMsg: Boolean;
+  @Input('showLastNameMsg') showLastNameMsg: Boolean;
+  @Input('showInvalidNameMsg') showInvalidNameMsg: Boolean;
+  @Input('showStreetMsg') showStreetMsg: Boolean;
   @Input('showAdrsMsg') showAdrsMsg: Boolean;
-  @Input('undefinedMsg') undefinedMsg: Boolean;
+  @Input('showFullNameMsg') showFullNameMsg: Boolean;
   @Input('showHouseNumMsg') showHouseNumMsg: Boolean;
   @Input('showcityMsg') showcityMsg: Boolean;
   @Input('showstateMsg') showstateMsg: Boolean;
   @Input('showzipNumMsg') showzipNumMsg: Boolean;
-  @Input('showAreaMsg') showAreaMessage: Boolean;
   @Input('showNumMsg') showNumMsg: Boolean;
-  @Input('showAreaMsg') showAreaMsg: Boolean;
-  @Input('showPrefixMsg') showPrefixMsg: Boolean;
-  @Input('showActualNumMsg') showActualNumMsg: Boolean;
+  @Input('showNumLengthMsg') showNumLengthMsg: Boolean;
 
   constructor() { }
 
