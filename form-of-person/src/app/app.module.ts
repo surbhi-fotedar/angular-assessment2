@@ -9,7 +9,7 @@ import { MailingAddressComponent } from './mailing-address/mailing-address.compo
 import { LocationComponent } from './location/location.component';
 import { PhoneNumberComponent } from './phone-number/phone-number.component';
 import { EmailAddressComponent } from './email-address/email-address.component';
-import { LastNameComponent } from './last-name/last-name.component';
+import { PersonComponenetValidation } from './person-componenet-validation/person-componenet-validation';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { LastNameComponent } from './last-name/last-name.component';
     LocationComponent,
     PhoneNumberComponent,
     EmailAddressComponent,
-    LastNameComponent
+    PersonComponenetValidation
   ],
   imports: [
     BrowserModule,

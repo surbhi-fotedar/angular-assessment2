@@ -1,4 +1,4 @@
 export class Mailing {
-  houseNum: number;
+  houseNum: string;
   streetName: string;
 }

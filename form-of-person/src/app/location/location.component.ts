@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NameService } from '../name.service';
+import { PersonService } from '../person.service';
 import { Location } from '../location';
 
 @Component({
@@ -16,29 +16,38 @@ export class LocationComponent implements OnInit {
   showState: boolean = false;
   showZip: boolean = false;
   
-  constructor(public nameService: NameService) { }
+  constructor(public personservice: PersonService) { }
 
   ngOnInit() {
   }
 
   onBlurMethod() {
-    if(typeof(this.location) === 'undefined') {
-      this.showCity = !this.showCity;
+    if(typeof(this.location) === 'undefined' || this.location.trim() == '' ) {
+      this.showCity = true;
     }
     else {
-      this.pLocation = this.nameService.parsePersonLocation(this.location);
-      if(typeof(this.pLocation.stateName) === 'undefined') {
-        this.showState = !this.showState;
+      this.pLocation = this.personservice.parsePersonLocation(this.location.trim());
+      if(typeof(this.pLocation.stateName) === 'undefined' || (this.pLocation.stateName).trim() == '') {
+        this.showCity = false;
+        this.showState = true;
       }
-      else if(!(this.pLocation.zipCode)) {
-        this.showState = false;
-        this.showZip = !this.showZip
+      else if((/^[0-9]+$/.test(this.pLocation.zipCode))) {
+        if(this.pLocation.zipCode.length == 6) {
+          this.showState = false;
+          this.showZip = false;
+        }
+
+        else {
+          this.showState = false;
+          this.showZip = true;
+        }
+        
       }
       else {
+        this.showCity = false;
         this.showState = false;
-        this.showZip = false;
+        this.showZip = true;
       }
     }
   }
-
 }

@@ -2,10 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-last-name',
-  templateUrl: './last-name.component.html',
-  styleUrls: ['./last-name.component.css']
+  templateUrl: './person-componenet-validation.html',
+  styleUrls: ['./person-componenet-validation.css']
 })
-export class LastNameComponent implements OnInit {
+export class PersonComponenetValidation implements OnInit {
 
   @Input('showLastNameMsg') showLastNameMsg: Boolean;
   @Input('showInvalidNameMsg') showInvalidNameMsg: Boolean;
@@ -19,9 +19,7 @@ export class LastNameComponent implements OnInit {
   @Input('showNumMsg') showNumMsg: Boolean;
   @Input('showNumLengthMsg') showNumLengthMsg: Boolean;
   @Input('showEmailMsg') showEmailMsg: Boolean;
-  @Input('showEmailNameMsg') showEmailNameMsg: Boolean;
-  @Input('showEmailDomainMsg') showEmailDomainMsg: Boolean;
-
+ 
   constructor() { }
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NameService } from '../name.service';
+import { PersonService } from '../person.service';
 import { Mailing } from '../mailing';
 
 @Component({
@@ -17,24 +17,24 @@ export class MailingAddressComponent implements OnInit {
   showHouseNum: boolean = false;
   showStreet: boolean = false;
 
-  constructor(public nameService: NameService) { }
+  constructor(public personservice: PersonService) { }
 
   ngOnInit() {
   }
 
   onBlurMethod(){
 
-    if(typeof(this.address) === 'undefined') {
-      this.showAddress = !this.showAddress;
+    if(typeof(this.address) == 'undefined' || this.address.trim() == '') {
+      this.showAddress = true;
     }
     else {
-      this.pAddress = this.nameService.parsePersonAddress(this.address);
-      if(!(Number(this.pAddress.houseNum)) ) {
-        this.showAddress = !this.showAddress;
+      this.pAddress = this.personservice.parsePersonAddress(this.address.trim());
+      if(!(/^[0-9]+$/.test(this.pAddress.houseNum))) {
+        this.showAddress = true;
       }
-      else if(typeof(this.pAddress.streetName) === 'undefined'){
+      else if(typeof(this.pAddress.streetName) == 'undefined' || this.pAddress.streetName.trim() == ''){
         this.showAddress = false;
-        this.showStreet = !this.showStreet;
+        this.showStreet = true;
       }
       else {
         this.showStreet = false;

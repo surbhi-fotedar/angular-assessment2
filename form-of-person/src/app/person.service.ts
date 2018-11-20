@@ -10,7 +10,7 @@ import { Email } from './email';
 @Injectable({
   providedIn: 'root'
 })
-export class NameService {
+export class PersonService {
 
   value: string[] = [];
   pName = new Name();
@@ -35,7 +35,7 @@ export class NameService {
   parsePersonAddress(mailing: string): Mailing {
     
     this.value = mailing.split(' ');
-    this.pAddress.houseNum = Number(this.value[0]);
+    this.pAddress.houseNum = this.value[0];
     this.pAddress.streetName = this.value[1];
     
     return this.pAddress;
@@ -46,7 +46,7 @@ export class NameService {
     this.value = location.split(' ');
     this.pLocation.cityName = this.value[0];
     this.pLocation.stateName = this.value[1];
-    this.pLocation.zipCode = Number(this.value[2]);
+    this.pLocation.zipCode = this.value[2];
     
     return this.pLocation;
 

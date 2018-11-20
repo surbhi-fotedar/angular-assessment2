@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NameService } from '../name.service';
+import { PersonService } from '../person.service';
 import { PhoneNumber } from '../phone-number';
 @Component({
   selector: 'app-phone-number',
@@ -14,24 +14,25 @@ export class PhoneNumberComponent implements OnInit {
   showNum: boolean = false;
   showNumLength: boolean = false;
   
-  constructor(public nameService: NameService) { }
+  constructor(public personservice: PersonService) { }
 
   ngOnInit() {
   }
 
   onBlurMethod() {
     
-    if(!(Number(this.phoneNumber))) {
-      this.showNum = !this.showNum;
+    if(!(/^[0-9]+$/.test(this.phoneNumber))) {
+      this.showNum = true;
     }
 
     else if(this.phoneNumber.length !== 10){
-      this.showNumLength = !this.showNumLength;
-
+      this.showNum = false;
+      this.showNumLength = true;
     }
     else {
-      this.pNumber = this.nameService.parsePersonPhoneNumber(this.phoneNumber);
+      this.pNumber = this.personservice.parsePersonPhoneNumber(this.phoneNumber);
       this.phoneNumber = '('+ this.pNumber.areaCode + ') ' + this.pNumber.prefix + '-' +this.pNumber.actualNumber;   
+      this.showNum = false;
       this.showNumLength = false;  
     }
     }

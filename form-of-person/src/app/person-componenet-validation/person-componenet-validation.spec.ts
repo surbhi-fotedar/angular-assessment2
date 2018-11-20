@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LastNameComponent } from './last-name.component';
+import { PersonComponenetValidation } from './person-componenet-validation';
 
-describe('LastNameComponent', () => {
-  let component: LastNameComponent;
-  let fixture: ComponentFixture<LastNameComponent>;
+describe('PersonComponenetValidation', () => {
+  let component: PersonComponenetValidation;
+  let fixture: ComponentFixture<PersonComponenetValidation>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LastNameComponent ]
+      declarations: [ PersonComponenetValidation ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LastNameComponent);
+    fixture = TestBed.createComponent(PersonComponenetValidation);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

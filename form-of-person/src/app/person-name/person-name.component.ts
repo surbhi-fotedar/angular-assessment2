@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NameService } from '../name.service';
+import { PersonService } from '../person.service';
 import { Name } from '../name';
 
 
@@ -18,31 +18,33 @@ export class PersonNameComponent implements OnInit {
   showFullName: boolean = false;
   showInvalidName: boolean = false;
   showLastName: boolean = false;
-  letters = /^[A-Za-z\s\.]*$/;
-  constructor(public nameService: NameService) { }
+  
+  constructor(public personservice: PersonService) { }
 
   ngOnInit() { }
 
   onBlurMethod() {
 
-    if(typeof(this.fullName) === 'undefined') {
-      this.showFullName = !this.showFullName;
+    if(typeof(this.fullName) === 'undefined' || (this.fullName).trim() == '') {
+      this.showFullName = true;
     } 
     
-    else if(this.letters.test(this.fullName)) {
-      this.pName = this.nameService.parsePersonName(this.fullName);
-        if(typeof(this.pName.lastName) === 'undefined') {
+    else if(/^[A-Za-z\s\.]*$/.test(this.fullName)) {
+      this.pName = this.personservice.parsePersonName(this.fullName.trim());
+        if(typeof(this.pName.lastName) === 'undefined' || (this.pName.lastName).trim() == '') {
+          this.showFullName = false;
           this.showInvalidName = false;
-          this.showLastName = !this.showLastName;
+          this.showLastName = true;
         }
         else {
+          this.showFullName = false;
           this.showInvalidName = false;
           this.showLastName = false;
         }
     }
       else {
         this.showLastName = false;
-        this.showInvalidName = !this.showInvalidName;
+        this.showInvalidName = true;
       } 
     } 
   }
